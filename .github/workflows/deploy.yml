@@ -37,7 +37,7 @@ jobs:
       with:
         serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
         packageName: tw.cs6.mylogtw
-        releaseFile: ./app-release-001.aab
+        releaseFile: ./app-release-002.aab
         track: internal
         whatsNewDirectory: ./mapping.txt
         mappingFile: ./mapping.txt
