@@ -26,6 +26,7 @@ jobs:
       run: echo "Version is ${{ steps.package-node-version.outputs.version }}"
 
     - name: Get npm version action
+      id: package-version
       uses: pchynoweth/action-get-npm-version@1.0.1
     
     - name: Show version number
