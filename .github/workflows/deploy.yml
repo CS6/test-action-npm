@@ -32,6 +32,15 @@ jobs:
         echo "name is ${{ steps.package-info.outputs.name }}"
         echo "target is ${{ github.ref }}"
 
+    - name: Upload Android Release to Play Store (internal track publishing is default)
+      uses: r0adkll/upload-google-play@v1
+      with:
+        serviceAccountJson: ${{ SERVICE_ACCOUNT_JSON }}
+        packageName: tw.cs6.mylogtw
+        releaseFile: .app-release-001.aab
+        track: internal
+        whatsNewDirectory: /distribution/whatsnew-en-US
+        mappingFile: .mapping.txt
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
