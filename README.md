@@ -9,7 +9,7 @@ After that follow the instructions to create a Service Account. When you click C
 ### Google Play publisher account
 For the initial setup only, you must have access to the Google account which owns the [Google Play publisher account][gp-docs-distribute].
 
-This is required to enable API access from Jenkins to your Google Play account.
+This is required to enable API access from GitHub Actions to your Google Play account.
 
 Note that having admin access is not enough; you need the account owner.  
 You can see who the account owner is under [Settings → User accounts & rights][gp-console-admin] in the Google Play developer console.
@@ -19,20 +19,20 @@ You can see who the account owner is under [Settings → User accounts & rights]
 
 #### Bundle size warnings
 If you try to upload an AAB file to Google Play (including manually via the Google Play Developer Console), and its size is perhaps 100MB+, it may give you a warning:
-> The installation of the app bundle may be too large and trigger user warning on some devices […] this needs to be explicitly acknowledged
+> The installation of the app bundle may be too large and trigger user warning on some […] this needs to be explicitly acknowledged
 
-Unfortunately, this "user warning" that may be shown, presumably when a user installs your app from Google Play, does not appear to be documented.  
 This plugin automatically "acknowledges" that warning on Google Play on your behalf when uploading any AAB files, regardless of their size, so you should not see any errors.
 
 If you _do_ see see any unexpected behaviour related to uploading bundles, or warnings appearing for end users, please [let us know](#feedback).
 
 ## Setup
 ### One-time: Set up Google Play credentials
-The following initial setup process is demonstrated in this video: [https://www.youtube.com/watch?v=txdPSJF94RM][demo-video-creds] (note that Google has changed the Google API Console (at least twice) since this video was recorded; steps 3–13 in the "Create Google service account" section below have the updated info)
+The following initial setup process is demonstrated in this imge
+『放圖』
 
 #### Install plugin
-Install this plugin via the Jenkins plugin manager.  
-Or if installing the plugin via other means, ensure that the prerequisite [Google OAuth Credentials Plugin][plugin-google-oauth], [Token Macro Plugin][plugin-token-macro] and their dependencies are also installed.
+[Install this plugin via the marketplace  plugin manager.  ](https://github.com/marketplace/actions/upload-android-release-to-play-store)
+ ensure that the prerequisite [Google OAuth Credentials Plugin][plugin-google-oauth], [Token Macro Plugin][plugin-token-macro] and their dependencies are also.
 
 #### Create Google service account
 To enable automated access to your Google Play account, you must create a service account:
@@ -42,14 +42,14 @@ To enable automated access to your Google Play account, you must create a servic
 3.  Under Service Accounts, click "Create Service Account"
 4.  Follow the link to the Google API Console
 5.  Click the "Create service account" button
-6.  Give the service account any name you like, e.g. "Jenkins"
-7.  Choose Service Accounts > Service Account User （服務帳戶使用者 搜尋要用中文） for the "Role" field
+6.  Give the service account any name you like, e.g. "Github Actions"
+7.  Choose Service Accounts > Service Account User （ 中文搜尋要用[服務帳戶使用者]） for the "Role" field
 8.  Enable "Furnish a new private key"
-9.  Choose "JSON" as the key type (P12 works as well, but JSON is a little simpler)
+9.  Choose "JSON" as the key type (P12 works as well, but the Plugin suppter a JSON is a little simpler)
 10. Click the "Save" button
 11. Note that a .json file is downloaded, named something like "api-xxxxxxxxx-xxxxx-xxxx.json"
 12. Close the dialog that appears
-13. Copy the email address of the new user (something like "jenkins@api-xxxxxxxxx-xxxxx-xxxx.iam.gserviceaccount.com")
+13. Copy the email address of the new user (something like "Github Actions@api-xxxxxxxxx-xxxxx-xxxx.iam.gserviceaccount.com")
 14. You can now close the page
 
 #### Assign permissions to the service account
@@ -61,7 +61,7 @@ To enable automated access to your Google Play account, you must create a servic
    2. Click "Invite new user"
    3. Paste in the email address you copied above
    4. Continue from step 5
-4.  Click the "Grant access" button for the account (e.g. "jenkins@api-xxxxxxxxx-xxxxx-xxxx.iam.gserviceaccount.com")
+4.  Click the "Grant access" button for the account (e.g. "Github Actions@api-xxxxxxxxx-xxxxx-xxxx.iam.gserviceaccount.com")
 5.  Ensure that at least the following permissions are enabled:
     - **View app information** — this is required for the plugin to function
     - **Manage production releases** — optional, if you want to upload APKs to production
@@ -69,9 +69,10 @@ To enable automated access to your Google Play account, you must create a servic
 6.  Click "Add user" (or "Send invitation", as appropriate)
 7.  You can now log out of the Google Play publisher account
 
-https://github.com/CS6/upload-google-play
-
-Google Play Console
-In order for CI/CD environment to be able to upload .apk or .aab via API, you need to generate Service Account JSON (private key) and add it to Github Secrets as shown above. 
-
 To do so, visit Google Play Console to set up API access and don’t forget to click Grant Access when you are done.
+
+
+Refer to
+
+https://github.com/jenkinsci/google-play-android-publisher-plugin/blob/master/README.md
+https://medium.com/@iqan/continuously-releasing-flutter-app-to-play-store-using-github-actions-eca2f5f6e996
