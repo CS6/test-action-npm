@@ -43,7 +43,7 @@ To enable automated access to your Google Play account, you must create a servic
 4.  Follow the link to the Google API Console
 5.  Click the "Create service account" button
 6.  Give the service account any name you like, e.g. "Jenkins"
-7.  Choose Service Accounts > Service Account User for the "Role" field
+7.  Choose Service Accounts > Service Account User （服務帳戶使用者 搜尋要用中文） for the "Role" field
 8.  Enable "Furnish a new private key"
 9.  Choose "JSON" as the key type (P12 works as well, but JSON is a little simpler)
 10. Click the "Save" button
