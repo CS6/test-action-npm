@@ -39,7 +39,7 @@ jobs:
         packageName: tw.cs6.mylogtw
         releaseFile: ./app-release-001.aab
         track: internal
-        whatsNewDirectory: /distribution/whatsnew-en-US
+        whatsNewDirectory: ./mapping.txt
         mappingFile: ./mapping.txt
 
     # Runs a single command using the runners shell
