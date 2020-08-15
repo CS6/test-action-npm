@@ -68,3 +68,10 @@ To enable automated access to your Google Play account, you must create a servic
     - **Manage testing track releases** — if you want to upload APKs to alpha, beta, internal, or custom test tracks
 6.  Click "Add user" (or "Send invitation", as appropriate)
 7.  You can now log out of the Google Play publisher account
+
+https://github.com/CS6/upload-google-play
+
+Google Play Console
+In order for CI/CD environment to be able to upload .apk or .aab via API, you need to generate Service Account JSON (private key) and add it to Github Secrets as shown above. 
+
+To do so, visit Google Play Console to set up API access and don’t forget to click Grant Access when you are done.
