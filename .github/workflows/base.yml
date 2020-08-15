@@ -28,8 +28,17 @@ jobs:
     
     - name: Show version number
       run: echo "Version is ${{ steps.package-version.outputs.version }}"
-      
+ 
+    - name: NodeJS Project Information
+      id: package-info
+      uses: gregoranders/nodejs-project-info@v0.0.10
 
+    - name: Show package info
+      run: |
+        echo "Version is ${{ steps.package-version.outputs.version }}"
+        echo "Version is ${{ steps.package-version.outputs.name }}"
+        echo "target is ${{ github.ref }}"
+ 
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
