@@ -31,7 +31,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
       env:
-        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN_NBS}}
+        NODE_AUTH_TOKEN: ${{secrets.MY_PAT_ACTION_DEPLOY}}
 
 
 
