@@ -24,13 +24,13 @@ jobs:
 
     - name: Show node version number
       run: echo "Version is ${{ steps.package-node-version.outputs.version }}"
+
+    - name: Get npm version action
+      uses: pchynoweth/action-get-npm-version@1.0.1
+    
     - name: Show version number
       run: echo "Version is ${{ steps.package-version.outputs.version }}"
       
-    - name: Get npm version action
-      uses: pchynoweth/action-get-npm-version@1.0.1
-
-
 
     - name: Use Node.js
       uses: actions/setup-node@v1
