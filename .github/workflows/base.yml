@@ -22,9 +22,6 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: Read package.json node version
-      uses: culshaw/read-package-node-version-actions@v2.0.0
-      id: package-node-version
     - name: Show node version number
       run: echo "Version is ${{ steps.package-node-version.outputs.version }}"
     - name: Show version number
