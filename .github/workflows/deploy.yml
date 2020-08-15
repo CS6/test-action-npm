@@ -39,7 +39,7 @@ jobs:
         packageName: tw.cs6.mylogtw
         releaseFile: ./app-release-002.aab
         track: internal
-        whatsNewDirectory: ./whatsnew-zh-TW
+        whatsNewDirectory: whatsnew-zh-TW
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
