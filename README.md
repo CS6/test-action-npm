@@ -28,7 +28,9 @@ If you _do_ see see any unexpected behaviour related to uploading bundles, or wa
 ## Setup
 ### One-time: Set up Google Play credentials
 The following initial setup process is demonstrated in this imge
-『放圖』
+
+<img width="906" alt="截圖 2020-08-16 上午6 39 25" src="https://user-images.githubusercontent.com/16307922/90322802-610e5980-df8b-11ea-885c-9ce562ba0d3f.png">
+
 
 #### Install plugin
 [Install this plugin via the marketplace  plugin manager.  ](https://github.com/marketplace/actions/upload-android-release-to-play-store)
