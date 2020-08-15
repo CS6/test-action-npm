@@ -19,8 +19,21 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: Use Node.js
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        always-auth: true
+        node-version: '12.x'
+        registry-url: https://npm.pkg.github.com
+        scope: '@numbersprotocol'
+    - name: Install dependencies
+      run: npm ci
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
@@ -31,14 +44,3 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        always-auth: true
-        node-version: '12.x'
-        registry-url: https://npm.pkg.github.com
-        scope: '@numbersprotocol'
-    - name: Install dependencies
-      run: npm ci
-      env:
-        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
