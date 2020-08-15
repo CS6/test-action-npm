@@ -35,8 +35,8 @@ jobs:
 
     - name: Show package info
       run: |
-        echo "Version is ${{ steps.package-version.outputs.version }}"
-        echo "Version is ${{ steps.package-version.outputs.name }}"
+        echo "Version is ${{ steps.package-info.outputs.version }}"
+        echo "Version is ${{ steps.package-info.outputs.name }}"
         echo "target is ${{ github.ref }}"
  
     - name: Use Node.js
