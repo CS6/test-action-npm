@@ -1,0 +1,22 @@
+{
+  "DVTSourceControlWorkspaceBlueprintLocationsKey" : {
+    "C6EC51C42220F4AC2843337609689D67CCE0B81D" : {
+      "DVTSourceControlWorkspaceBlueprintLocationTypeKey" : "DVTSourceControlLockedRevisionLocation",
+      "DVTSourceControlLocationRevisionKey" : "3bf3284df7e9a40692fd19f14b9b9e89cef11455"
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "30CE946F-3181-493E-9084-5001D9F44509",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C6EC51C42220F4AC2843337609689D67CCE0B81D" : "..\/..\/Library\/Developer\/Xcode\/DerivedData\/exp001-bjjhakjtwrcivefdanrecroxufli\/SourcePackages\/checkouts\/SwiftUIX"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "exp001",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "exp001.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SwiftUIX\/SwiftUIX",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C6EC51C42220F4AC2843337609689D67CCE0B81D"
+    }
+  ]
+}
