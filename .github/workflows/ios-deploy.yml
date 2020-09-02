@@ -1,0 +1,52 @@
+# This is a basic workflow to help you get started with Actions
+
+name:  ios-deploy
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: macOS-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+    - name: Installing Tree
+      run:  brew install tree
+    - name: Run a signing Certificate p12 script
+      uses: apple-actions/import-codesign-certs@v1
+      with: 
+        p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+        p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
+    - uses: Apple-Actions/download-provisioning-profiles@v1
+      with:
+        bundle-id: tw.mydatatw.mylog14
+        issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+        api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+        api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+    - name: Showing Tree
+      run: |
+        tree ../ -L 1
+        tree ../../ -L 2
+        tree ../../ -L 3 -d
+        tree -L 4  
+    - name: Showing Tree
+      run: tree -L 4
+
+    - uses: Apple-Actions/upload-testflight-build@master
+      with:
+        app-path: ./ios/App/build/exp001.ipa
+        issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+        api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+        api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+   
