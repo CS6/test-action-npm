@@ -37,8 +37,7 @@ jobs:
 #     - name: Showing Tree
 #       run: tree -L 4
     - name: Build IPA (APPLE)
-      run: |
-          xcodebuild -exportArchive -archivePath exp00120200903441AM.xcarchive -exportPath ./build -exportOptionsPlist ./test/ExportOptions.plist -allowProvisioningUpdates
+      run: xcodebuild -exportArchive -archivePath exp00120200903441AM.xcarchive -exportPath ./build -exportOptionsPlist ./test/ExportOptions.plist -allowProvisioningUpdates
 #          -allowProvisioningUpdates
 
 #     - name: Showing Tree
