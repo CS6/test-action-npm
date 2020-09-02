@@ -30,14 +30,15 @@ jobs:
         p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
     - uses: Apple-Actions/download-provisioning-profiles@v1
       with:
-        bundle-id: tw.mydatatw.mylog14
+        bundle-id: dev.dayuan.pve
         issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
         api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
         api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
 #     - name: Showing Tree
 #       run: tree -L 4
     - name: Build IPA (APPLE)
-      run: xcodebuild -exportArchive -archivePath exp00120200903441AM.xcarchive -exportPath ./build -exportOptionsPlist ./test/ExportOptions.plist -allowProvisioningUpdates
+      run: |
+        xcodebuild -exportArchive -archivePath exp00120200903441AM.xcarchive -exportPath ./build -exportOptionsPlist ./test/ExportOptions.plist -allowProvisioningUpdates
 #          -allowProvisioningUpdates
 
 #     - name: Showing Tree
