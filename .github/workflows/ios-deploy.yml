@@ -36,9 +36,18 @@ jobs:
         api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
 #     - name: Showing Tree
 #       run: tree -L 4
+    - name: Build app (fix)
+      run: |
+        cd exp001
+        xcodebuild archive  -scheme exp001  -sdk iphoneos -configuration Release -archivePath ../build/export     -showBuildTimingSummary     CURRENT_PROJECT_VERSION="41"   archive
+ #     xcodebuild archive -scheme exp001  -sdk iphoneos  -configuration Release -archivePath /Users/sddivid/Documents/key/ios/9:3xcode/export    -showBuildTimingSummary CURRENT_PROJECT_VERSION="41"   archive 
+
+
     - name: Build IPA (APPLE)
       run: |
-        xcodebuild -exportArchive -archivePath exp00120200903441AM.xcarchive -exportPath ./build -exportOptionsPlist ./test/ExportOptions.plist -allowProvisioningUpdates
+        xcodebuild -exportArchive -archivePath ./build/export.xcarchive -exportPath ./build -exportOptionsPlist ./test/ExportOptions.plist -allowProvisioningUpdates
+
+#        xcodebuild -exportArchive -archivePath exp00120200903441AM.xcarchive -exportPath ./build -exportOptionsPlist ./test/ExportOptions.plist -allowProvisioningUpdates
 #          -allowProvisioningUpdates
 
 #     - name: Showing Tree
