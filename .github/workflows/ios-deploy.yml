@@ -21,8 +21,8 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-#     - name: Installing Tree
-#       run:  brew install tree
+    - name: Installing Tree
+      run:  brew install tree
 #     - name: Run a signing Certificate p12 script
 #       uses: apple-actions/import-codesign-certs@v1
 #       with: 
@@ -34,14 +34,14 @@ jobs:
 #         issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
 #         api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
 #         api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
-#     - name: Showing Tree
-#       run: |
-#         tree ../ -L 1
-#         tree ../../ -L 2
-#         tree ../../ -L 3 -d
-#         tree -L 4  
-#     - name: Showing Tree
-#       run: tree -L 4
+    - name: Showing Tree
+      run: |
+        tree ../ -L 1
+        tree ../../ -L 2
+        tree ../../ -L 3 -d
+        tree -L 4  
+    - name: Showing Tree
+      run: tree -L 4
 
     - uses: Apple-Actions/upload-testflight-build@master
       with:
