@@ -26,7 +26,7 @@ jobs:
     - name: Run a signing Certificate p12 script
       uses: apple-actions/import-codesign-certs@v1
       with: 
-        p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+        p12-file-base64: ${{ secrets.CERTIFICATES_P12_0903 }}
         p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
     - uses: Apple-Actions/download-provisioning-profiles@v1
       with:
