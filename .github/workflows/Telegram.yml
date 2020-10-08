@@ -61,7 +61,11 @@ jobs:
         message: |
           Below is the apk for commit:OK 
         document: ${{ github.workspace }}/text.txt
-
+    - name: show job status 3 
+      if: always()
+      run: echo $status
+      env:
+         status: ${{job.status}}
 
 #                 Below is the apk for commit: ${{ github.event.head_commit.message }}
 #         document: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk`
