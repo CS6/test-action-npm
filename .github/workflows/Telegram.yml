@@ -31,7 +31,17 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
           Below is the apk for commit: 
-        document: ./text.json
+        document: ./text.txt
+    - name: send custom message
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO_MESSAGEID }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: |
+          Below is the apk for commit: 
+        document: https://github.com/CS6/test-action-npm/blob/master/app-release-001.aab
+
+
 #                 Below is the apk for commit: ${{ github.event.head_commit.message }}
 #         document: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk`
 
