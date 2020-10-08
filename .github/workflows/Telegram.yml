@@ -19,6 +19,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: show job status
+      if: always()
+      run: echo $status
+      env:
+         status: ${{job.status}}
 
     - name: Show package info
       run: |
@@ -34,21 +39,27 @@ jobs:
         document:  https://github.com/CS6/test-action-npm/blob/master/app-release-001.aab
 
     - name: send custom message
+      if: always()    
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_TO_MESSAGEID }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
-          Below is the apk for commit: 
-        document: ${{ github.workspace }}/app-release-001.aab
-
+          Below is the apk for commit: error
+        document: ${{ github.workspace }}/error/app-release-001.aab
+    - name: show job status 2 
+      if: always()
+      run: echo $status
+      env:
+         status: ${{job.status}}
     - name: send custom message
+      if: always()
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_TO_MESSAGEID }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
-          Below is the apk for commit: 
+          Below is the apk for commit:OK 
         document: ${{ github.workspace }}/text.txt
 
 
