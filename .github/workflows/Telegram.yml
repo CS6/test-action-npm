@@ -1,14 +1,14 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CI_Telegram
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
   push:
-    branches: [ XXmaster ]
+    branches: [ master ]
   pull_request:
-    branches: [ XXmaster ]
+    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -20,26 +20,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
- - name: Show package info
-    run: |
-        echo "Version is ${{ steps.package-info.outputs.version }}"
-        echo "name is ${{ steps.package-info.outputs.name }}"
-        echo "target is ${{ github.ref }}"
-
+    - name: Show package info
+      run: |
+        touch text.txt
+        
     - name: send custom message
       uses: appleboy/telegram-action@master
       with:
-        to: ${{ secrets.MESSAGEID }}
-        token: ${{ secrets.BOTTOKEN }}
+        to: ${{ secrets.TELEGRAM_TO_MESSAGEID }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
-          Below is the apk for commit: ${{ github.event.head_commit.message }}
-        document: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk`
-        - name: Show package info
-          run: |
-            echo "Version is ${{ steps.package-info.outputs.version }}"
-            echo "name is ${{ steps.package-info.outputs.name }}"
-            echo "target is ${{ github.ref }}"
-
+          Below is the apk for commit: 
+        document: ./text.json
+#                 Below is the apk for commit: ${{ github.event.head_commit.message }}
+#         document: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk`
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
