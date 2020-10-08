@@ -31,7 +31,8 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
           Below is the apk for commit: 
-        document: ./text.txt
+        document:  https://github.com/CS6/test-action-npm/blob/master/app-release-001.aab
+
     - name: send custom message
       uses: appleboy/telegram-action@master
       with:
@@ -39,7 +40,16 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
           Below is the apk for commit: 
-        document: https://github.com/CS6/test-action-npm/blob/master/app-release-001.aab
+        document: text.txt  
+
+    - name: send custom message
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO_MESSAGEID }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: |
+          Below is the apk for commit: 
+        document: app-release-001.aab
 
 
 #                 Below is the apk for commit: ${{ github.event.head_commit.message }}
