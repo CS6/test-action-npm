@@ -1,0 +1,68 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI_Telegram
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: show job status
+      if: always()
+      run: echo $status
+      env:
+         status: ${{job.status}}
+
+    - name: "#️⃣ Generate ios Build Number"
+      if: always()
+      id: buildnumber_ios_Build
+      uses: einaregilsson/build-number@v2
+      with:
+        token: ${{ secrets.ACTION_TOKEN }}
+        prefix: ios_Build
+        
+    - name: "#️⃣ Generate Android Build Number"
+      if: always()
+      id: buildnumber_Android_Build
+      uses: einaregilsson/build-number@v2
+      with:
+        token: ${{ secrets.ACTION_TOKEN }}
+        prefix: Android_Build
+        
+    - name: "#️⃣ Generate Android VersionName"
+      if: always()
+      id: buildnumber_Android_VersionName
+      uses: einaregilsson/build-number@v2
+      with:
+        token: ${{ secrets.ACTION_TOKEN }}
+        prefix: Android_VersionName
+
+    - name: "#️⃣ Generate ios VersionName"
+      if: always()
+      id: buildnumber_ios_VersionName
+      uses: einaregilsson/build-number@v2
+      with:
+        token: ${{ secrets.ACTION_TOKEN }}
+        prefix: ios_VersionName
+    - name: show job status
+      if: always()
+      run: |
+        echo $status 
+        echo $Android_Build $buildnumber_Android_Build
+        echo $Android_VersionName $buildnumber_Android_VersionName
+        echo $ios_Build $buildnumber_ios_Build
+        echo $ios_VersionName $buildnumber_ios_VersionName
+      env:
+         status: ${{job.status}}
