@@ -58,6 +58,7 @@ jobs:
         prefix: ios_VersionName
     - name: show job status
       if: always()
+      id: show
       run: |
         echo Add test actions ,
         echo $status 
@@ -65,9 +66,19 @@ jobs:
         echo "Android_VersionName $Android_VersionName"
         echo "ios_Build $ios_Build"
         echo "ios_VersionName $ios_VersionName"
-        echo Android_Build ${{steps.Android_Build.outputs.bundle_path}}
-        echo Android_VersionName ${{steps.Android_VersionName.outputs.bundle_path}}
-        echo ios_Build ${{steps.ios_Build.outputs.bundle_path}}
-        echo ios_VersionName ${{steps.ios_VersionName.outputs.bundle_path}}
+        
+        ::set-output name=build_number::4
+        
+        Build_PATH=${{steps.Android_Build.outputs.bundle_path}}
+        echo ::set-output name=Version::$Build_PATH
+        
+        echo Android_Build ${{steps.Android_Build.outputs.build_number}}
+        echo Android_VersionName ${{steps.Android_VersionName.outputs.build_number}}
+        echo ios_Build ${{steps.ios_Build.outputs.build_number}}
+        echo ios_VersionName ${{steps.ios_VersionName.outputs.build_number}}
       env:
          status: ${{job.status}}
+    - name: show Version status
+      if: always()
+      run: |
+        echo Version ${{steps.ios_VersionName.outputs.Version}}
