@@ -66,16 +66,12 @@ jobs:
         echo "Android_VersionName $Android_VersionName"
         echo "ios_Build $ios_Build"
         echo "ios_VersionName $ios_VersionName"
-        
-        ::set-output name=build_number::4
-        
-        Build_PATH=${{steps.Android_Build.outputs.bundle_path}}
-        echo ::set-output name=Version::$Build_PATH
-        
         echo Android_Build ${{steps.Android_Build.outputs.build_number}}
         echo Android_VersionName ${{steps.Android_VersionName.outputs.build_number}}
         echo ios_Build ${{steps.ios_Build.outputs.build_number}}
         echo ios_VersionName ${{steps.ios_VersionName.outputs.build_number}}
+        Build_PATH=${{steps.Android_Build.outputs.bundle_path}}
+        echo ::set-output name=Version::$Build_PATH
       env:
          status: ${{job.status}}
     - name: show Version status
