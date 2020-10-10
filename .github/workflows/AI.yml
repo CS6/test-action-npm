@@ -27,7 +27,7 @@ jobs:
 
     - name: "#️⃣ Generate ios Build Number"
       if: always()
-      id: buildnumber_ios_Build
+      id: ios_Build
       uses: einaregilsson/build-number@v2
       with:
         token: ${{ secrets.ACTION_TOKEN }}
@@ -35,7 +35,7 @@ jobs:
         
     - name: "#️⃣ Generate Android Build Number"
       if: always()
-      id: buildnumber_Android_Build
+      id: Android_Build
       uses: einaregilsson/build-number@v2
       with:
         token: ${{ secrets.ACTION_TOKEN }}
@@ -43,7 +43,7 @@ jobs:
         
     - name: "#️⃣ Generate Android VersionName"
       if: always()
-      id: buildnumber_Android_VersionName
+      id: Android_VersionName
       uses: einaregilsson/build-number@v2
       with:
         token: ${{ secrets.ACTION_TOKEN }}
@@ -51,7 +51,7 @@ jobs:
 
     - name: "#️⃣ Generate ios VersionName"
       if: always()
-      id: buildnumber_ios_VersionName
+      id: ios_VersionName
       uses: einaregilsson/build-number@v2
       with:
         token: ${{ secrets.ACTION_TOKEN }}
@@ -61,13 +61,13 @@ jobs:
       run: |
         echo Add test actions ,
         echo $status 
-        echo Android_Build $buildnumber_Android_Build
-        echo Android_VersionName $buildnumber_Android_VersionName
-        echo ios_Build $buildnumber_ios_Build
-        echo ios_VersionName $buildnumber_ios_VersionName
-        echo Android_Build ${{steps.buildnumber_Android_Build.outputs.bundle_path}}
-        echo Android_VersionName ${{steps.buildnumber_Android_VersionName.outputs.bundle_path}}
-        echo ios_Build ${{steps.buildnumber_ios_Build.outputs.bundle_path}}
-        echo ios_VersionName ${{steps.buildnumber_ios_VersionName.outputs.bundle_path}}
+        echo Android_Build $Android_Build
+        echo Android_VersionName $Android_VersionName
+        echo ios_Build $ios_Build
+        echo ios_VersionName $ios_VersionName
+        echo Android_Build ${{steps.Android_Build.outputs.bundle_path}}
+        echo Android_VersionName ${{steps.Android_VersionName.outputs.bundle_path}}
+        echo ios_Build ${{steps.ios_Build.outputs.bundle_path}}
+        echo ios_VersionName ${{steps.ios_VersionName.outputs.bundle_path}}
       env:
          status: ${{job.status}}
