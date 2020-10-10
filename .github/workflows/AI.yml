@@ -61,10 +61,10 @@ jobs:
       run: |
         echo Add test actions ,
         echo $status 
-        echo Android_Build $Android_Build
-        echo Android_VersionName $Android_VersionName
-        echo ios_Build $ios_Build
-        echo ios_VersionName $ios_VersionName
+        echo "Android_Build $Android_Build"
+        echo "Android_VersionName $Android_VersionName"
+        echo "ios_Build $ios_Build"
+        echo "ios_VersionName $ios_VersionName"
         echo Android_Build ${{steps.Android_Build.outputs.bundle_path}}
         echo Android_VersionName ${{steps.Android_VersionName.outputs.bundle_path}}
         echo ios_Build ${{steps.ios_Build.outputs.bundle_path}}
