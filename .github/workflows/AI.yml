@@ -59,10 +59,15 @@ jobs:
     - name: show job status
       if: always()
       run: |
+        echo Add test actions ,
         echo $status 
-        echo $Android_Build $buildnumber_Android_Build
-        echo $Android_VersionName $buildnumber_Android_VersionName
-        echo $ios_Build $buildnumber_ios_Build
-        echo $ios_VersionName $buildnumber_ios_VersionName
+        echo Android_Build $buildnumber_Android_Build
+        echo Android_VersionName $buildnumber_Android_VersionName
+        echo ios_Build $buildnumber_ios_Build
+        echo ios_VersionName $buildnumber_ios_VersionName
+        echo Android_Build ${{steps.buildnumber_Android_Build.outputs.bundle_path}}
+        echo Android_VersionName ${{steps.buildnumber_Android_VersionName.outputs.bundle_path}}
+        echo ios_Build ${{steps.buildnumber_ios_Build.outputs.bundle_path}}
+        echo ios_VersionName ${{steps.buildnumber_ios_VersionName.outputs.bundle_path}}
       env:
          status: ${{job.status}}
