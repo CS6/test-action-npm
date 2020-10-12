@@ -33,6 +33,7 @@ jobs:
 
     - name: send custom message
       uses: appleboy/telegram-action@master
+      if: always()
       with:
         to: ${{ secrets.TELEGRAM_TO_MESSAGEID }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
