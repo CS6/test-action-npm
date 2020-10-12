@@ -43,8 +43,10 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
+      if: always()
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+        curl https://api.telegram.org/bot1311126633:AAEJuhNLZ7YUpVe2URgo3YDlLZnblsnzhoE/sendMessage\?chat_id\=71535121\&text\=Actions_Hello
     - name: Run a echo
       run: echo Add test actions ,
