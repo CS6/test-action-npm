@@ -47,6 +47,6 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-        curl https://api.telegram.org/bot1311126633:AAEJuhNLZ7YUpVe2URgo3YDlLZnblsnzhoE/sendMessage\?chat_id\=71535121\&text\=Actions_Hello
+        curl https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage\?chat_id\=${{ secrets.TELEGRAM_TO_MESSAGEID }}\&text\=Actions_Hello
     - name: Run a echo
       run: echo Add test actions ,
